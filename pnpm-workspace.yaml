@@ -37,6 +37,9 @@ minimumReleaseAgeExclude:
   - pele@1.13.0  # the desktop diagram swap was parity-checked on it (math labels need 1.8.0+)
 
 overrides:
+  # node-gyp 10 pulls vulnerable glob/minimatch via get-windows' optional build tooling.
+  # Reuse the node-gyp version already locked for @electron/rebuild instead.
+  'get-windows>node-gyp': 12.4.0
   '@electron/osx-sign>isbinaryfile': 5.0.7
   lodash: 4.18.1
   protobufjs: '^8.7.1'
